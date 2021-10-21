@@ -4,6 +4,7 @@
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -29,15 +30,6 @@
           </div>
         </nav>
       </header>
-      <footer>
-        <div class="container mt-5">
-          <div class="row">
-            <div class="mx-auto">
-              <p>CopyRight Infratop.inc</p>
-            </div>
-          </div>
-        </div>
-      </footer>
     <% else %>
       <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -57,17 +49,19 @@
           </div>
         </nav>
       </header>
-      <footer>
-        <div class="container mt-5">
-          <div class="row">
-            <div class="mx-auto">
-              <p>CopyRight Infratop.inc</p>
-            </div>
-          </div>
-        </div>
-      </footer>
     <% end %>
     
+    <main class="mb-auto">
     <%= yield %>
+    </main>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
