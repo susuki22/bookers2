@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
  def after_sing_in_path_for(resource)
-   users_show_path(resource)
+   user_path(current_user.id)
  end
 
  def after_sing_out_path_for(resource)
