@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
   	  	<h1>Editing Book</h1>
-  		  <form action="/books/26178" accept-charset="UTF-8" method="post">
+  		  <%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
   		    <input name="utf8" type="hidden" value="✓">
   		    <input type="hidden" name="_method" value="patch">
   		    <input type="hidden" name="authenticity_token" value="mWE8Ihuy8CIyyVjjYFwPptF9eyJlzDTqqdLO42FcAt1kM9S1yYkMO5h5dEyXgckSSTWxIvuMBaWl2/visuvgOA==">
@@ -19,7 +19,7 @@
           <div class="form-group">
             <input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">
           </div>
-        </form>
+        <% end %>
   		  <a class="book_26178" href="/books/26178">Show</a> |
   		  <a class="back" href="/books">Back</a>
       </div>
