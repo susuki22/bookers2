@@ -4,26 +4,25 @@
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
         <h2>User info</h2>
-        <form_with enctype="multipart/form-data" action="/users/32963" accept-charset="UTF-8" method="post">
-          <input name="utf8" type="hidden" value="✓">
-          <input type="hidden" name="_method" value="patch">
-          <input type="hidden" name="authenticity_token" value="9QPGWnBP9wape++97oi833Eq/CXc8CzwmapOaVZcAN1eI466ipeOzyT2e7i054Nvuk+LaECb4ek6g3+oy2ulSA==">
-          <div class="form-group">
-            <label for="user_name">Name</label>
-            <input class="form-control name" type="text" value="qwe" name="user[name]" id="user_name">
-          </div>
-          <div class="form-group">
-            <label for="user_image">Image</label>
-            <input value="{}" data-reference="13d34ffb0e8956eccac8c34928a02523" type="hidden" name="user[profile_image]"><input class="form-control-file user_image" data-reference="13d34ffb0e8956eccac8c34928a02523" include_hidden="false" type="file" name="user[profile_image]" id="user_profile_image">
-          </div>
-          <div class="form-group">
-            <label for="user_introduction">Introduction</label>
-            <textarea class="form-control introduction" name="user[introduction]" id="user_introduction"></textarea>
-          </div>
-          <div class="form-group">
-            <input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User">
-          </div>
-        </form>
+        <%= form_with model:@user, url:"/users/#{@user.id}", local:true do |f| %>
+          <div class="d-flex flex-column bd-highlight mb-3">
+            <div class="form-group">
+              <label for="user_name">Name</label>
+              <%= f.text_field :name, class:"form-control", placeholder:"" %>
+            </div>
+            <div class="form-group">
+              <label for="user_image">Image</label>
+              <%= f.attachment_field :profile_image, class: "w-100" %>
+            </div>
+            <div class="form-group">
+              <label for="user_introduction">Introduction</label>
+              <%= f.text_area :introduction, class:"form-control", rows:"3", placeholder:"" %>
+            </div>
+            <div class="form-group">
+              <%= f.submit 'Update User', class:"btn btn-secondary" %>
+            </div>
+          </div
+        <% end %>
       </div>
     </div>
   </div>
